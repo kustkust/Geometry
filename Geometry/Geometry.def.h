@@ -43,5 +43,4 @@ namespace gm {
 	bool OE(real x, real y = 0, real e = 0.01);
 	int sign(real i);
 	const real inversSquareRoot(real len);
-	angle smallestAng(const gm::Vector& v, const gm::Vector& u);
 }

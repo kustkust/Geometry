@@ -22,8 +22,4 @@ namespace gm {
 		//      y  = y * ( 1.5 - ( x2 * y * y ) );   // 2nd iteration, this can be removed
 		return y;
 	}
-	angle smallestAng(const gm::Vector& v, const gm::Vector& u) {
-		auto a = abs(v ^ u);
-		return a <= PI ? a : PI2 - a;
-	}
 }

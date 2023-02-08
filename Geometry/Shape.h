@@ -30,11 +30,11 @@ namespace gm {
 		virtual Collision collides(const Circle& other) const = 0;
 		virtual Collision collides(const Rectangle& other) const = 0;
 
+		virtual bool fastCollides(const Shape& other) const { return !outside(other); };
 		virtual bool fastCollides(const IShape& other) const;
 		virtual bool fastCollides(const IShape* other) const;
 		virtual bool fastCollides(const Line& other) const { return !outside(other); };
 		virtual bool fastCollides(const Sect& other) const { return !outside(other); };
-		virtual bool fastCollides(const Shape& other) const { return !outside(other); };
 		virtual bool fastCollides(const Circle& other) const { return !outside(other); };
 		virtual bool fastCollides(const Rectangle& other) const { return !outside(other); };
 

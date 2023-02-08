@@ -86,7 +86,11 @@ namespace gm {
 	const angle Vector::ang_b(const Vector v)const {
 		// if (*(*this) == 0. || *v == 0.) { return 0; }
 		// return acos(cosv(v)) * sign(*this % v);
-		return atan2(v.y, v.x) - atan2(y, x);
+		auto a = atan2(v.y, v.x) - atan2(y, x);
+		return 
+			a > PI ? a - PI2 :
+			a < -PI ? a + PI2 : 
+			a;
 	}
 	const angle Vector::operator^(const Vector& v) const {
 		return ang_b(v);

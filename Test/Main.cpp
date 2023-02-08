@@ -56,9 +56,18 @@ void testCircRect() {
 	return;
 }
 
+void f(const gm::Vector& v, const gm::Vector& u) {
+	std::cout << v << "^" << u << "=" << std::setprecision(2) << (v ^ u)*gm::RtoG << std::endl;
+}
+
 void testAngle() {
-	gm::Vector v(-2, 1), u (-2, -1);
-	std::cout << v << "^" << u << "=" << std::setprecision(2) << (v ^ u) << std::endl;
+	f({ -2, 1 }, { -2, -1 });
+	f({ -2, -1 }, { -2, 1 });
+	f({ 1, 1 }, { -2, -1 });
+	f({ -1, 1 }, { -2, -1 });
+	f({ 2, 1 }, { -1, -2 });
+	f({ 1, 1 }, { 1, -1 });
+	system("pause");
 }
 
 int main() {
