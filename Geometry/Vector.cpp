@@ -22,6 +22,22 @@ namespace gm {
 		return { x + offx,y + offy };
 	}
 
+	const Vector Vector::mulX(const real mx) const {
+		return { x * mx, y };
+	}
+
+	const Vector Vector::mulY(const real my) const {
+		return { x, y * my };
+	}
+
+	const Vector Vector::mul(real mx, real my) const {
+		return { x * mx, y * my };
+	}
+
+	const Vector Vector::mul(const gm::Vector& m) const {
+		return { x * m.x, y * m.y };
+	}
+
 	const Vector Vector::operator+(const Vector& u) const {
 		return Vector::Vector(x + u.x, y + u.y);
 	}
@@ -87,9 +103,9 @@ namespace gm {
 		// if (*(*this) == 0. || *v == 0.) { return 0; }
 		// return acos(cosv(v)) * sign(*this % v);
 		auto a = atan2(v.y, v.x) - atan2(y, x);
-		return 
+		return
 			a > PI ? a - PI2 :
-			a < -PI ? a + PI2 : 
+			a < -PI ? a + PI2 :
 			a;
 	}
 	const angle Vector::operator^(const Vector& v) const {
@@ -337,7 +353,7 @@ namespace gm {
 
 	//SFML Support
 #ifdef SFML_VECTOR2_HPP
-	Vector::Vector(const sf::Vector2f& v) : x{ v.x }, y{ v.y }{}
+	Vector::Vector(const sf::Vector2f& v) : x{ v.x }, y{ v.y } {}
 	Vector::Vector(const sf::Vector2i& v) : x(static_cast<coord>(v.x)), y(static_cast<coord>(v.y)) {}
 	Vector::Vector(const sf::Vector2u& v) : x(static_cast<coord>(v.x)), y(static_cast<coord>(v.y)) {}
 	Vector::operator sf::Vector2f()const {

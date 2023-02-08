@@ -14,10 +14,6 @@ namespace gm {
 		Vector(const coord x1, const  coord y1);
 		Vector(const int x1, const int y1);
 
-		const Vector addX(const coord offx) const;
-		const Vector addY(const coord offy) const;
-		const Vector add(const coord offx, const coord offy) const;
-
 		const Vector operator+(const Vector& u) const;
 		const Vector operator-(const Vector& u) const;
 		const Vector operator-()const;
@@ -87,6 +83,14 @@ namespace gm {
 		const Vector add_len(const lenght& l) const;
 		Vector& sadd_len(const lenght& l);
 
+
+		const Vector addX(const coord offx) const;
+		const Vector addY(const coord offy) const;
+		const Vector add(const coord offx, const coord offy) const;
+		const Vector mulX(const real mx) const;
+		const Vector mulY(const real my) const;
+		const Vector mul(real mx, real my) const;
+		const Vector mul(const gm::Vector& m) const;
 		const Vector invX() const;
 		const Vector invY() const;
 		const Vector vecX() const;
