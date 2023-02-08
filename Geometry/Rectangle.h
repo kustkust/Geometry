@@ -1,53 +1,60 @@
 #pragma once
-#include "Vector2D.h"
-#include "IMoveable.h"
-#include "ISizeable.h"
-#include <optional>
+#include <bitset>
+#include "Vector.h"
+#include "Shape.h"
 #include "SFML/Graphics/Rect.hpp"
 
 namespace gm {
-	class Rectangle : public IMoveable, public ISizeable {
-		Coord2D leftTop;
-		Size2D size;
+	class Rectangle : public IShape {
+		Coord leftTop;
+		Size size;
 	public:
 		Rectangle();
-		Rectangle(const Coord2D& leftTop, const Size2D& size);
+		Rectangle(const Coord& leftTop, const Size& size);
 		Rectangle(coord left, coord top, real width, real heigth);
-		static Rectangle LTRB(const Coord2D& leftTop, const Coord2D& rightBottom);
+		static Rectangle LTRB(const Coord& leftTop, const Coord& rightBottom);
 
 		bool operator==(const Rectangle& other)const;
 		bool operator!=(const Rectangle& other)const;
 
-		void move(const Vector2D& v) override;
-		const Coord2D getPosition()const override;
-		Coord2D getCenter()const;
-		void setCenter(const Coord2D& center);
+		void move(const Vector& v) override;
+		const Coord getPosition()const override;
 
-		void scale(const Vector2D& scale);
-		real getXScale()const override;
-		real getYScale()const override;
+		const Size getSize() const override;
+		void setSize(const gm::Size& newSize) override;
 
-		const Size2D getSize() const override;
-		void setSize(const gm::Size2D& newSize) override;
+		const Vector getScale()const override;
+		void scale(const gm::Vector& scale) override;
 
-		const Coord2D getLeftTop() const;
-		const Coord2D getRightTop() const;
-		const Coord2D getLeftBottom() const;
-		const Coord2D getRightBottom() const;
+		bool contains(const Coord& point) const override;
 
-		coord getLeft()const;
-		coord getRight()const;
-		coord getTop()const;
-		coord getBottom()const;
+		const Rectangle getBounds() const override;
 
-		std::optional<Rectangle> intersect(const Rectangle& other) const;
-		bool inside(const Rectangle& other) const;
-		bool contain(const Rectangle& other) const;
+		const Sect getLeftSect() const;
+		const Sect getTopSect() const;
+		const Sect getRightSect() const;
+		const Sect getBottomSect() const;
+
+
+		virtual bool inside(const Line& other) const override;
+		virtual bool inside(const Sect& other) const override;
+		virtual bool inside(const Circle& other) const override;
+		virtual bool inside(const Rectangle& other) const override;
+
+		virtual bool outside(const Line& other) const override;
+		virtual bool outside(const Sect& other) const override;
+		virtual bool outside(const Circle& other) const override;
+		virtual bool outside(const Rectangle& other) const override;
+
+		virtual Collision collides(const Line& other) const override;
+		virtual Collision collides(const Sect& other) const override;
+		virtual Collision collides(const Circle& other) const override;
+		virtual Collision collides(const Rectangle& other) const override;
 
 #ifdef SFML_RECT_HPP
 		template<class T>
 		Rectangle(const sf::Rect<T>& rect) : leftTop(rect.left, rect.top), size(rect.width, rect.height) {
-			
+
 		}
 		template<class T>
 		Rectangle& operator =(const sf::Rect<T>& rect) {
@@ -57,5 +64,24 @@ namespace gm {
 			size.y = rect.height;
 		}
 #endif
+	};
+
+	class RectangleColl : public ICollison {
+		Rectangle coll;
+		std::bitset<4> corners;
+		bool collide;
+	public:
+		RectangleColl(bool coll);
+		RectangleColl(const Rectangle& rect, int first, int second);
+		RectangleColl(const Rectangle& rect, std::bitset<4> corners);
+		operator bool() const override;
+		PointsArray getPoints() const override;
+		const Rectangle& getRect() const;
+		const Coord getFirst() const;
+		const Coord getSecond() const;
+		bool islt() const;
+		bool isrt() const;
+		bool islb() const;
+		bool isrb() const;
 	};
 }

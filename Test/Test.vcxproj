@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\include;C:\Users\kust\Programming\C++\Progects\Geometry\Geometry</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\include;C:\Users\kust\Programming\C++\Progects\Geometry\x64\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\lib;C:\Users\kust\Programming\C++\Progects\Geometry\x64\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\lib;C:\Users\kust\Programming\C++\Progects\Geometry\x64\bin\$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;Geometry.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\include;C:\Users\kust\Programming\C++\Progects\Geometry\x64\includes</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -129,7 +129,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\lib;C:\Users\kust\Programming\C++\Progects\Geometry\x64\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\lib;C:\Users\kust\Programming\C++\Progects\Geometry\x64\bin\$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-main.lib;Geometry.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

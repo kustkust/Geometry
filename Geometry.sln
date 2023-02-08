@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry", "Geometry\Geometry.vcxproj", "{37173C61-A30D-41A2-B07D-4E123FD225C9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{9BBA8243-F8BC-42AF-9604-1A1C24B390F4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{37173C61-A30D-41A2-B07D-4E123FD225C9} = {37173C61-A30D-41A2-B07D-4E123FD225C9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

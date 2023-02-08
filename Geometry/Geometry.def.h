@@ -23,13 +23,19 @@ namespace gm {
 		A180,
 	};
 
+	class Vector;
+	using Coord = Vector;
+	using Size = Vector;
+
 	class IMoveable;
 	class IScaleable;
 	class IRotateable;
 
-	class Vector2D;
-	using Coord2D = Vector2D;
-	using Size2D = Vector2D;
+	class Shape;
+	class Line;
+	class Sect;
+	class Circle;
+	class Rectangle;
 
 	class Matrix2;
 	class Matrix3;
@@ -37,4 +43,5 @@ namespace gm {
 	bool OE(real x, real y = 0, real e = 0.01);
 	int sign(real i);
 	const real inversSquareRoot(real len);
+	angle smallestAng(const gm::Vector& v, const gm::Vector& u);
 }

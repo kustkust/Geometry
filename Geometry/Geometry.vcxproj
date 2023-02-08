@@ -78,9 +78,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -125,6 +127,10 @@
       <AdditionalLibraryDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)$(Platform)\includes\"
+copy "$(ProjectDir)*.h" "$(SolutionDir)$(Platform)\includes\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,27 +151,40 @@
       <AdditionalLibraryDirectories>$(USERPROFILE)\Programming\C++\SFML\dynamic\2.5.1\x64\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)$(Platform)\includes\"
+copy "$(ProjectDir)*.h" "$(SolutionDir)$(Platform)\includes\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Geometry.def.cpp" />
     <ClCompile Include="IMoveable.cpp" />
     <ClCompile Include="IRotateable.cpp" />
     <ClCompile Include="IScaleable.cpp" />
-    <ClCompile Include="Line2D.cpp" />
+    <ClCompile Include="Sect.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ISizeable.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="Matrix2.cpp" />
     <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Geometry.def.h" />
     <ClInclude Include="IMoveable.h" />
     <ClInclude Include="IRotateable.h" />
     <ClInclude Include="IScaleable.h" />
+    <ClInclude Include="Sect.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="ISizeable.h" />
-    <ClInclude Include="Line2D.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="Matrix2.h" />
     <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

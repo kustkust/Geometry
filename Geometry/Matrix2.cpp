@@ -1,5 +1,5 @@
 #include "Matrix2.h"
-#include "Vector2D.h"
+#include "Vector.h"
 
 namespace gm {
 	Matrix2::Matrix2() :m{ 1,0,0,1 } {}
@@ -104,8 +104,8 @@ namespace gm {
 		return Matrix2(s / m.m[0], s / m.m[1], s / m.m[2], s / m.m[3]);
 	}
 
-	const Vector2D Matrix2::operator*(const Vector2D& v) const {
-		return Vector2D(m[0] * v.x + m[1] * v.y, m[2] * v.x + m[3] * v.y);
+	const Vector Matrix2::operator*(const Vector& v) const {
+		return Vector(m[0] * v.x + m[1] * v.y, m[2] * v.x + m[3] * v.y);
 	}
 
 	const Matrix2 Matrix2::operator*(const Matrix2& _m) const {
@@ -136,14 +136,14 @@ namespace gm {
 		return (*this) * Matrix2(a);
 	}
 
-	void Matrix2::scale(const Vector2D& scale) {
+	void Matrix2::scale(const Vector& scale) {
 		m[0] *= scale.x;
 		m[1] *= scale.x;
 		m[2] *= scale.y;
 		m[3] *= scale.y;
 	}
 
-	void Matrix2::setScale(const Vector2D& scale) {
+	void Matrix2::setScale(const Vector& scale) {
 		auto newXScale = scale.x / getXScale(), newYScale = scale.y / getYScale();
 		m[0] *= newXScale;
 		m[1] *= newXScale;
@@ -159,7 +159,7 @@ namespace gm {
 		return sqrt(m[2] * m[2] + m[3] * m[3]);
 	}
 
-	const Matrix2 Matrix2::getScaled(const Vector2D& scale) const {
+	const Matrix2 Matrix2::getScaled(const Vector& scale) const {
 		auto newXScale = scale.x / getXScale(), newYScale = scale.y / getYScale();
 		return {
 			m[0] * newXScale,
@@ -167,6 +167,10 @@ namespace gm {
 			m[2] * newYScale,
 			m[3] * newYScale,
 		};
+	}
+
+	const Vector Matrix2::getScale() const {
+		return gm::VXY;
 	}
 
 	Matrix2::~Matrix2()

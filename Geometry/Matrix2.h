@@ -4,7 +4,7 @@
 #include "IScaleable.h"
 
 namespace gm {
-	class Matrix2: public IRotateable, public IScaleable {
+	class Matrix2 : public IRotateable, public IScaleable {
 	public:
 		real m[4];
 
@@ -36,7 +36,7 @@ namespace gm {
 		const Matrix2 operator-(const Matrix2& mm) const;
 		Matrix2& operator-=(const Matrix2& mm);
 
-		const Vector2D operator*(const Vector2D& v) const;
+		const Vector operator*(const Vector& v) const;
 		const Matrix2 operator*(const Matrix2& mm) const;
 		Matrix2& operator*=(const Matrix2& mm);
 
@@ -44,11 +44,12 @@ namespace gm {
 		const angle getRotation() const override;
 		const Matrix2 getRotated(angle a) const;
 
-		void scale(const Vector2D& scale) override;
-		void setScale(const Vector2D& scale) override;
+		void scale(const Vector& scale) override;
+		void setScale(const Vector& scale) override;
 		real getXScale()const override;
 		real getYScale()const override;
-		const Matrix2 getScaled(const Vector2D& scale) const;
+		const Matrix2 getScaled(const Vector& scale) const;
+		const Vector getScale() const override;
 
 		~Matrix2();
 	};
