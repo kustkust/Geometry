@@ -19,7 +19,7 @@ void gm::Circle::scale(const Vector& scale) {
 	radius *= scale.x;
 #ifdef _DEBUG
 	if (scale.x != scale.y) {
-		std::cout << "Circle::scale() : x and y must be equale" << std::endl;
+		std::cout << "Circle::scale() : x and y must be equal" << std::endl;
 	}
 #endif
 }
@@ -60,7 +60,7 @@ void gm::Circle::setSize(const gm::Size& newSize) {
 	radius = newSize.x / 2;
 #ifdef _DEBUG
 	if (newSize.x != newSize.y) {
-		std::cout << "Circle::setSize() : x and y must be equale" << std::endl;
+		std::cout << "Circle::setSize() : x and y must be equal" << std::endl;
 	}
 #endif
 }
