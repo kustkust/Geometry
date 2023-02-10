@@ -104,7 +104,11 @@ bool gm::Rectangle::outside(const Line& other) const { // V
 }
 
 bool gm::Rectangle::outside(const Sect& other) const { // V
-	return !contains(other.p0) && !contains(other.p1);
+	return !contains(other.p0) && !contains(other.p1) &&
+		!getTopSect().collides(other) &&
+		!getLeftSect().collides(other) &&
+		!getRightSect().collides(other) &&
+		!getBottomSect().collides(other);;
 }
 
 bool gm::Rectangle::outside(const Circle& other) const { // V
