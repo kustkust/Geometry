@@ -26,20 +26,20 @@ const gm::Coord gm::ISizeable::getRightBottom() const {
 	return getLeftTop() + getSize();
 }
 
-void gm::ISizeable::setLeftTop(const Coord& center) {
-	setPosition(center);
+void gm::ISizeable::setLeftTop(const Coord& lt) {
+	setPosition(lt);
 }
 
-void gm::ISizeable::setRightTop(const Coord& center) {
-	setLeftTop(center.addX(getWidth()));
+void gm::ISizeable::setRightTop(const Coord& rt) {
+	setLeftTop(rt.addX(-getWidth()));
 }
 
-void gm::ISizeable::setLeftBottom(const Coord& center) {
-	setLeftTop(center.addY(getHeight()));
+void gm::ISizeable::setLeftBottom(const Coord& lb) {
+	setLeftTop(lb.addY(-getHeight()));
 }
 
-void gm::ISizeable::setRightBottom(const Coord& center) {
-	setLeftTop(center + getSize());
+void gm::ISizeable::setRightBottom(const Coord& rb) {
+	setLeftTop(rb - getSize());
 }
 
 
@@ -68,11 +68,11 @@ const gm::Coord gm::ISizeable::getRightCenter() const {
 }
 
 const gm::Coord gm::ISizeable::getTopCenter() const {
-	return getLeftTop().addX(getSize().x / 2);
+	return getLeftTop().addX(getWidth() / 2);
 }
 
 const gm::Coord gm::ISizeable::getBottomCenter() const {
-	return getLeftBottom().addX(getSize().x / 2);
+	return getLeftBottom().addX(getWidth() / 2);
 }
 
 void gm::ISizeable::setSize(gm::lenght newSize) {
