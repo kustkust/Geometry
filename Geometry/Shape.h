@@ -39,6 +39,11 @@ namespace gm {
 		virtual bool fastCollides(const Rectangle& other) const { return !outside(other); };
 
 		virtual bool contains(const Coord& point) const = 0;
+
+		template<class T>
+		T* as() {
+			return dynamic_cast<T*>(this);
+		}
 	};
 	class Shape : public IShape {
 		// using Sptr = std::unique_ptr<IShape>;
