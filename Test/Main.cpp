@@ -70,7 +70,14 @@ void testAngle() {
 	system("pause");
 }
 
+void testRot() {
+	gm::Vector v(1, 0);
+	v <<= 120 * gm::GtoR;
+	std::cout << std::setprecision(2) << v << std::endl;
+}
+
 int main() {
+	testRot();
 	testAngle();
 	testCircRect();
 	testRectRect();
