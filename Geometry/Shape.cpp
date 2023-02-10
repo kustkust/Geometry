@@ -10,13 +10,13 @@ bool gm::IShape::inside(const IShape& other) const {
 }
 
 bool gm::IShape::inside(const IShape* p) const {
-    if (auto line = dynamic_cast<const Line*>(p)) {
+    if (auto line = p->as<Line>()) {
         return inside(*line);
-    } else if (auto sect = dynamic_cast<const Sect*>(p)) {
+    } else if (auto sect = p->as<Sect>()) {
         return inside(*sect);
-    } else if (auto rect = dynamic_cast<const Rectangle*>(p)) {
+    } else if (auto rect = p->as<Circle>()) {
         return inside(*rect);
-    } else if (auto circle = dynamic_cast<const Circle*>(p)) {
+    } else if (auto circle = p->as<Rectangle>()) {
         return inside(*circle);
     }
     return false;
@@ -27,13 +27,13 @@ bool gm::IShape::outside(const IShape& other) const {
 }
 
 bool gm::IShape::outside(const IShape* p) const {
-    if (auto line = dynamic_cast<const Line*>(p)) {
+    if (auto line = p->as<Line>()) {
         return outside(*line);
-    } else if (auto sect = dynamic_cast<const Sect*>(p)) {
+    } else if (auto sect = p->as<Sect>()) {
         return outside(*sect);
-    } else if (auto rect = dynamic_cast<const Rectangle*>(p)) {
+    } else if (auto rect = p->as<Circle>()) {
         return outside(*rect);
-    } else if (auto circle = dynamic_cast<const Circle*>(p)) {
+    } else if (auto circle = p->as<Rectangle>()) {
         return outside(*circle);
     }
     return false;
@@ -44,13 +44,13 @@ Collision gm::IShape::collides(const IShape& other) const {
 }
 
 Collision gm::IShape::collides(const IShape* p) const {
-    if (auto line = dynamic_cast<const Line*>(p)) {
+    if (auto line = p->as<Line>()) {
         return collides(*line);
-    } else if (auto sect = dynamic_cast<const Sect*>(p)) {
+    } else if (auto sect = p->as<Sect>()) {
         return collides(*sect);
-    } else if (auto rect = dynamic_cast<const Rectangle*>(p)) {
+    } else if (auto rect = p->as<Circle>()) {
         return collides(*rect);
-    } else if (auto circle = dynamic_cast<const Circle*>(p)) {
+    } else if (auto circle = p->as<Rectangle>()) {
         return collides(*circle);
     }
     return Collision();

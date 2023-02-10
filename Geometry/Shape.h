@@ -44,6 +44,10 @@ namespace gm {
 		T* as() {
 			return dynamic_cast<T*>(this);
 		}
+		template<class T>
+		const T* as() const {
+			return dynamic_cast<const T*>(this);
+		}
 	};
 	class Shape : public IShape {
 		// using Sptr = std::unique_ptr<IShape>;
