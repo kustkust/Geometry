@@ -87,15 +87,19 @@ bool gm::Rectangle::inside(const Circle& other) const { // V
 }
 
 bool gm::Rectangle::inside(const Rectangle& other) const { // V
-	return getLeft() >= other.getLeft() && getRight() <= other.getRight() && getTop() >= other.getTop() && getBottom() >= other.getBottom();
+	return
+		getLeft() >= other.getLeft() &&
+		getRight() <= other.getRight() &&
+		getTop() >= other.getTop() &&
+		getBottom() <= other.getBottom();
 }
 
 // outside
 bool gm::Rectangle::outside(const Line& other) const { // V
-	return 
-		!getTopSect().collides(other) && 
-		!getLeftSect().collides(other) && 
-		!getRightSect().collides(other) && 
+	return
+		!getTopSect().collides(other) &&
+		!getLeftSect().collides(other) &&
+		!getRightSect().collides(other) &&
 		!getBottomSect().collides(other);
 }
 
@@ -113,7 +117,7 @@ bool gm::Rectangle::outside(const Rectangle& o) const { // V
 
 // collides
 Collision gm::Rectangle::collides(const Line& other) const { // V
-	auto 
+	auto
 		lc = getLeftSect().collides(other).getPoints(),
 		tc = getTopSect().collides(other).getPoints(),
 		rc = getRightSect().collides(other).getPoints(),
