@@ -22,4 +22,5 @@ namespace gm {
 		//      y  = y * ( 1.5 - ( x2 * y * y ) );   // 2nd iteration, this can be removed
 		return y;
 	}
+	std::streamsize precision = 1;
 }

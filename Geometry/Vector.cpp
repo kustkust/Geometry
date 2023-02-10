@@ -338,10 +338,9 @@ namespace gm {
 	}
 
 
-	//ввод / вывод
 	std::ostream& operator<<(std::ostream& out, const Vector& v) {
 		out << std::fixed;
-		out.precision(1);
+		out.precision(gm::precision);
 		out << "(" << v.x << "; " << v.y << ")";
 		return out;
 	}

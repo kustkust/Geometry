@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include <ios>
 
 namespace gm {
 	constexpr auto PI = 3.141592653589793;
@@ -12,7 +13,7 @@ namespace gm {
 
 	using uint = unsigned int;
 
-	using real = double;//при изменении не забыть про приведение типов
+	using real = double;
 	using coord = real;
 	using lenght = coord;
 	using speed = coord;
@@ -43,4 +44,6 @@ namespace gm {
 	bool OE(real x, real y = 0, real e = 0.01);
 	int sign(real i);
 	const real inversSquareRoot(real len);
+
+	extern std::streamsize precision;
 }
