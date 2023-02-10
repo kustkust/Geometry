@@ -14,7 +14,7 @@ namespace gm {
 		Circle();
 		void resize(const Coord& p);
 
-		// Унаследовано через IShape
+
 		virtual void scale(const Vector& scale) override;
 		virtual const Vector getScale() const override;
 		virtual void move(const Vector& v) override;
