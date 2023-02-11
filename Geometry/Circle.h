@@ -23,6 +23,7 @@ namespace gm {
 		virtual void setCenter(const Coord& pos) override;
 
 		virtual const Size getSize() const override;
+		using IShape::setSize;
 		virtual void setSize(const gm::Size& newSize) override;
 
 		virtual const Coord getLeftTop() const;

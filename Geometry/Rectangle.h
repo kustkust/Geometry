@@ -35,17 +35,20 @@ namespace gm {
 		const Sect getRightSect() const;
 		const Sect getBottomSect() const;
 
-
+		
+		using IShape::inside;
 		virtual bool inside(const Line& other) const override;
 		virtual bool inside(const Sect& other) const override;
 		virtual bool inside(const Circle& other) const override;
 		virtual bool inside(const Rectangle& other) const override;
 
+		using IShape::outside;
 		virtual bool outside(const Line& other) const override;
 		virtual bool outside(const Sect& other) const override;
 		virtual bool outside(const Circle& other) const override;
 		virtual bool outside(const Rectangle& other) const override;
 
+		using IShape::collides;
 		virtual Collision collides(const Line& other) const override;
 		virtual Collision collides(const Sect& other) const override;
 		virtual Collision collides(const Circle& other) const override;
